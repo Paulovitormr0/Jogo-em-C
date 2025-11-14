@@ -4,6 +4,7 @@ Terra
 Júpiter
 Saturno
 3
+É um gigante gasoso e tem uma famosa 'Grande Mancha Vermelha'.
 
 Qual animal é conhecido como 'Rei da Selva'?
 Tigre
@@ -11,6 +12,7 @@ Leão
 Elefante
 Urso
 2
+O macho é famoso por sua grande juba.
 
 Qual capital é famosa por ter a Torre Eiffel?
 Roma
@@ -18,6 +20,7 @@ Londres
 Madri
 Paris
 4
+É a capital da França, também conhecida como 'Cidade Luz'.
 
 Quantos lados tem um triângulo?
 Dois
@@ -25,6 +28,7 @@ Três
 Quatro
 Cinco
 2
+O próprio prefixo ('Tri') do nome já indica a resposta.
 
 Qual é a cor primária que falta em um semáforo (além de vermelho e amarelo)?
 Azul
@@ -32,6 +36,7 @@ Laranja
 Verde
 Roxo
 3
+É a cor que internacionalmente significa 'Siga' ou 'Avançar'.
 
 Qual é a fórmula química da água?
 CO2
@@ -39,6 +44,7 @@ O2
 H2O
 NaCl
 3
+São dois átomos de Hidrogênio e um de Oxigênio.
 
 Quem escreveu a famosa peça 'Romeu e Julieta'?
 Charles Dickens
@@ -46,6 +52,7 @@ William Shakespeare
 Machado de Assis
 Homero
 2
+Famoso dramaturgo inglês, autor de 'Hamlet' e 'Macbeth'.
 
 Qual é o maior oceano do mundo?
 Oceano Atlântico
@@ -53,6 +60,7 @@ Oceano Índico
 Oceano Ártico
 Oceano Pacífico
 4
+Cobre mais de um terço da superfície da Terra, banhando a Ásia e as Américas.
 
 Qual é a capital do Japão?
 Pequim
@@ -60,6 +68,7 @@ Seul
 Tóquio
 Bangkok
 3
+É uma das maiores metrópoles do mundo e já se chamou 'Edo'.
 
 Quantos continentes existem no mundo?
 5
@@ -67,6 +76,7 @@ Quantos continentes existem no mundo?
 7
 8
 3
+O modelo mais comum no Brasil e EUA conta a América do Norte e do Sul como separadas.
 
 Quem pintou a 'Mona Lisa'?
 Vincent van Gogh
@@ -74,6 +84,7 @@ Pablo Picasso
 Leonardo da Vinci
 Michelangelo
 3
+Foi um gênio renascentista italiano que também pintou 'A Última Ceia'.
 
 Qual é a substância natural mais dura da Terra?
 Ouro
@@ -81,6 +92,7 @@ Ferro
 Quartzo
 Diamante
 4
+É feito de carbono e é usado tanto em joias quanto em ferramentas de corte.
 
 Em que ano o Titanic afundou?
 1905
@@ -88,6 +100,7 @@ Em que ano o Titanic afundou?
 1918
 1923
 2
+Ocorreu na viagem inaugural do navio, na segunda década do século XX.
 
 Qual é o principal gás que compõe a atmosfera terrestre?
 Oxigênio
@@ -95,6 +108,7 @@ Dióxido de Carbono
 Nitrogênio
 Hidrogênio
 3
+Compõe cerca de 78% do ar que respiramos; o oxigênio é o segundo.
 
 Qual organela é conhecida como a 'usina de energia' da célula?
 Núcleo
@@ -102,6 +116,7 @@ Ribossomo
 Mitocôndria
 Lisossomo
 3
+É responsável pela respiração celular e pela produção de ATP.
 
 Quem desenvolveu a teoria da relatividade geral?
 Isaac Newton
@@ -109,6 +124,7 @@ Galileu Galilei
 Nikola Tesla
 Albert Einstein
 4
+Famoso físico alemão, também conhecido pela fórmula E=mc².
 
 Qual é o menor país do mundo?
 Mônaco
@@ -116,6 +132,7 @@ Vaticano
 San Marino
 Liechtenstein
 2
+É a sede da Igreja Católica e fica localizado dentro da cidade de Roma.
 
 Qual elemento químico tem o número atômico 1?
 Hélio
@@ -123,6 +140,7 @@ Oxigênio
 Hidrogênio
 Carbono
 3
+É o primeiro elemento da tabela periódica e o mais abundante no universo.
 
 Qual é a velocidade da luz no vácuo (aproximadamente)?
 150.000 km/s
@@ -130,6 +148,7 @@ Qual é a velocidade da luz no vácuo (aproximadamente)?
 450.000 km/s
 600.000 km/s
 2
+Representada pela letra 'c' na física, é o limite de velocidade do universo.
 
 Na mitologia grega, quem é o deus do mar?
 Zeus
@@ -137,6 +156,7 @@ Hades
 Apolo
 Poseidon
 4
+Irmão de Zeus, carrega um tridente e seu equivalente romano é Netuno.
 
 Qual princípio da física afirma que um corpo em repouso tende a permanecer em repouso?
 Lei da Gravitação Universal
@@ -144,6 +164,7 @@ Segunda Lei de Newton
 Primeira Lei de Newton (Inércia)
 Princípio de Arquimedes
 3
+É o motivo pelo qual você é 'jogado para frente' quando o carro freia.
 
 Qual é a linguagem com o maior número de falantes nativos no mundo?
 Inglês
@@ -151,6 +172,7 @@ Espanhol
 Hindi
 Mandarim
 4
+É o principal idioma falado na China.
 
 Qual foi o primeiro ser humano a pisar na Lua?
 Yuri Gagarin
@@ -158,6 +180,7 @@ Buzz Aldrin
 Neil Armstrong
 Michael Collins
 3
+Famoso pela frase: 'É um pequeno passo para o homem...'.
 
 Em que camada da atmosfera a maioria dos fenômenos meteorológicos ocorre?
 Estratosfera
@@ -165,6 +188,7 @@ Mesosfera
 Termosfera
 Troposfera
 4
+É a camada mais baixa da atmosfera, onde nós vivemos e os aviões voam.
 
 Qual o nome do supercontinente que existiu há cerca de 300 milhões de anos?
 Laurásia
@@ -172,3 +196,4 @@ Gondwana
 Pangeia
 Rodínia
 3
+O nome, de origem grega, significa 'toda a Terra' ou 'todas as terras'.

@@ -4,7 +4,6 @@
 #include <time.h>
 #include <unistd.h>
 
-#define LINHAS_POR_PERGUNTA 8 
 #define MAX_LINHA 256
 #define TOTAL_NIVEIS 5
 
@@ -15,66 +14,103 @@ typedef struct {
     int resposta_correta; 
 } Pergunta;
 
-void trim_newline(char *str) {
-    int len = strlen(str);
-    if (len > 0 && str[len - 1] == '\n') {
-        str[len - 1] = '\0';
+void ler_string_json(FILE *arquivo, char *texto_destino) {
+    char caractere;
+    int i = 0;
+    
+    
+    while ((caractere = fgetc(arquivo)) != EOF && caractere != '\"');
+
+    
+    while ((caractere = fgetc(arquivo)) != EOF && caractere != '\"') {
+        if (i < MAX_LINHA - 1) {
+            texto_destino[i++] = caractere;
+        }
     }
+    texto_destino[i] = '\0'; 
 }
 
-int buscarPerguntaNoTxt(int numero_pergunta, Pergunta *p) {
-    FILE *fp = fopen("perguntas.txt", "r");
-    if (fp == NULL) {
-        printf("ERRO: Nao foi possivel abrir o 'perguntas.txt'\n");
+
+int buscar_chave(FILE *arquivo, const char *chave) {
+    int tamanho_chave = strlen(chave);
+    char caractere;
+    int letras_iguais = 0;
+
+   
+    while ((caractere = fgetc(arquivo)) != EOF) {
+        if (caractere == chave[letras_iguais]) {
+            letras_iguais++;
+            if (letras_iguais == tamanho_chave) return 1; 
+        } else {
+           
+            if (caractere == chave[0]) {
+                letras_iguais = 1; 
+            } else {
+                letras_iguais = 0;
+            }
+        }
+    }
+    return 0; 
+}
+
+int buscarPerguntaNoJson(int numero_pergunta, Pergunta *p) {
+    FILE *arquivo = fopen("perguntas.json", "r");
+    if (arquivo == NULL) {
+        printf("ERRO, o arquivo 'perguntas.json' nao foi encontrado na pasta.\n");
         return 1;
     }
 
-    int linhas_para_pular = numero_pergunta * LINHAS_POR_PERGUNTA;
-    char buffer_lixo[MAX_LINHA];
+    char caractere;
+    int contador_objetos = 0;
+
     
-    for (int i = 0; i < linhas_para_pular; i++) {
-        if (fgets(buffer_lixo, MAX_LINHA, fp) == NULL) {
-            printf("ERRO: Arquivo terminou antes de achar a pergunta %d\n", numero_pergunta);
-            fclose(fp);
-            return 1;
+    while ((caractere = fgetc(arquivo)) != EOF) {
+        if (caractere == '{') {
+            if (contador_objetos == numero_pergunta) {
+                break; 
+            }
+            contador_objetos++;
         }
     }
 
+    if (caractere == EOF) {
+        printf("\nERRO: O codigo buscou a pergunta numero %d, mas o arquivo JSON acabou antes.\n", numero_pergunta);
+        fclose(arquivo);
+        return 1;
+    }
 
-    if (fgets(p->texto, MAX_LINHA, fp) == NULL) return 1;           
-    if (fgets(p->alternativas[0], MAX_LINHA, fp) == NULL) return 1; 
-    if (fgets(p->alternativas[1], MAX_LINHA, fp) == NULL) return 1; 
-    if (fgets(p->alternativas[2], MAX_LINHA, fp) == NULL) return 1; 
-    if (fgets(p->alternativas[3], MAX_LINHA, fp) == NULL) return 1; 
     
+    if (!buscar_chave(arquivo, "\"texto\"")) return 1;
+    ler_string_json(arquivo, p->texto);
 
-    char buffer_resposta[MAX_LINHA];
-    if (fgets(buffer_resposta, MAX_LINHA, fp) == NULL) return 1; 
-
-
-    if (fgets(p->dica, MAX_LINHA, fp) == NULL) return 1; 
-   
-
-    trim_newline(p->texto);
-    trim_newline(p->alternativas[0]);
-    trim_newline(p->alternativas[1]);
-    trim_newline(p->alternativas[2]);
-    trim_newline(p->alternativas[3]);
-    trim_newline(p->dica); 
     
-    p->resposta_correta = atoi(buffer_resposta); // atoi = "ascii to integer"
+    if (!buscar_chave(arquivo, "\"alternativas\"")) return 1;
+    while ((caractere = fgetc(arquivo)) != EOF && caractere != '['); 
+    
+    ler_string_json(arquivo, p->alternativas[0]);
+    ler_string_json(arquivo, p->alternativas[1]);
+    ler_string_json(arquivo, p->alternativas[2]);
+    ler_string_json(arquivo, p->alternativas[3]);
 
-    fclose(fp);
-    return 0; 
+    
+    if (!buscar_chave(arquivo, "\"resposta\"")) return 1;
+    while ((caractere = fgetc(arquivo)) != EOF && caractere != ':'); 
+    fscanf(arquivo, "%d", &p->resposta_correta);
+
+    
+    if (!buscar_chave(arquivo, "\"dica\"")) return 1;
+    ler_string_json(arquivo, p->dica);
+
+    fclose(arquivo);
+    return 0;
 }
 
 int main() {
     srand(time(NULL));
     int errou = 0;
     int vitoria = 0;
-    int n = 0; 
+    int nivel_atual = 0; 
 
-   
     int acao_pular = 1;
     int acao_trocar = 1;
     int acao_dica = 1;
@@ -86,28 +122,27 @@ int main() {
     RECARREGAR_PERGUNTA: 
         if (vitoria || errou) break;
 
-        char menu_choice;
+        char opcao_menu; 
         int numero_pergunta = 0;
         
-        switch (n) {
-            case 0: numero_pergunta = (rand() % 5); break;   
-            case 1: numero_pergunta = (rand() % 5) + 5; break; 
+        switch (nivel_atual) {
+            case 0: numero_pergunta = (rand() % 5); break;
+            case 1: numero_pergunta = (rand() % 5) + 5; break;
             case 2: numero_pergunta = (rand() % 5) + 10; break;
             case 3: numero_pergunta = (rand() % 5) + 15; break;
             case 4: numero_pergunta = (rand() % 5) + 20; break;
         }
 
         Pergunta p; 
-        if (buscarPerguntaNoTxt(numero_pergunta, &p) != 0) {
-            printf("Erro ao ler a pergunta %d. Saindo.\n", numero_pergunta);
+        if (buscarPerguntaNoJson(numero_pergunta, &p) != 0) {
+            printf("Erroao ler a pergunta %d. O jogo sera encerrado.\n", numero_pergunta);
             return 1; 
         }
         
     EXIBIR_PERGUNTA: 
         if (vitoria || errou) break; 
-
         
-        printf("\nNivel %d de %d - Pergunta %d:\n", n + 1, TOTAL_NIVEIS, numero_pergunta + 1);
+        printf("\nNivel %d de %d - Pergunta %d (Indice %d):\n", nivel_atual + 1, TOTAL_NIVEIS, (nivel_atual*5)+1, numero_pergunta);
         printf("%s\n", p.texto); 
         printf("-----------------------------------\n");
         printf("1) %s\n", p.alternativas[0]);
@@ -128,10 +163,10 @@ int main() {
             printf("5) Exibir pergunta atual novamente\n");
             printf("Escolha uma opcao: ");
             
-            scanf(" %c", &menu_choice);
+            scanf(" %c", &opcao_menu);
             
-            switch (menu_choice) {
-                // [ 1 ] RESPONDER PERGUNTA
+            switch (opcao_menu) {
+                
                 case '1': { 
                     char resposta_usuario_char;
                     printf("Digite sua resposta (1-4): ");
@@ -142,9 +177,9 @@ int main() {
                     
                     if (p.resposta_correta == resposta_usuario_int) {
                         printf("\nCERTA RESPOSTA!\n");
-                        n++; 
+                        nivel_atual++; 
                         
-                        if (n == TOTAL_NIVEIS) { 
+                        if (nivel_atual == TOTAL_NIVEIS) { 
                             printf("\nParabens, VC ganhou!!!!\n");
                             vitoria = 1;
                         }
@@ -152,17 +187,16 @@ int main() {
                         printf("\nResposta errada! A resposta correta era %d. Fim de jogo.\n", p.resposta_correta);
                         errou = 1; 
                     }
-                    pergunta_foi_respondida = 1; // Sai do loop do menu
+                    pergunta_foi_respondida = 1; 
                     break;
                 }
                 
-                // [ 2 ] SAIR DO JOGO
+                
                 case '2':
                     printf("Saindo do jogo...\n");
                     errou = 1; 
                     break;
                     
-                // [ 3 ] UTILIZAR AÇÃO ESPECIAL
                 case '3': {
                     printf("\n--- ACOES ESPECIAIS ---\n");
                     printf("P) Pular Questao (%s)\n", acao_pular ? "Disponivel" : "Usado");
@@ -171,15 +205,15 @@ int main() {
                     printf("V) Voltar ao menu\n");
                     printf("Escolha: ");
                     
-                    char acao_choice;
-                    scanf(" %c", &acao_choice);
+                    char opcao_acao; 
+                    scanf(" %c", &opcao_acao);
                     
-                    if (acao_choice == 'P' || acao_choice == 'p') {
+                    if (opcao_acao == 'P' || opcao_acao == 'p') {
                         if (acao_pular) {
                             printf("\nACAO: Pulando para o proximo nivel...\n");
                             acao_pular = 0; 
-                            n++; 
-                            if (n == TOTAL_NIVEIS) { 
+                            nivel_atual++; 
+                            if (nivel_atual == TOTAL_NIVEIS) { 
                                 printf("\nParabens, VC ganhou!!!!\n");
                                 vitoria = 1;
                             }
@@ -188,7 +222,7 @@ int main() {
                             printf("Acao 'Pular' ja foi utilizada!\n");
                         }
                     } 
-                    else if (acao_choice == 'T' || acao_choice == 't') {
+                    else if (opcao_acao == 'T' || opcao_acao == 't') {
                         if (acao_trocar) {
                             printf("\nACAO: Trocando de pergunta...\n");
                             acao_trocar = 0;
@@ -197,7 +231,7 @@ int main() {
                             printf("Acao 'Trocar' ja foi utilizada!\n");
                         }
                     }
-                    else if (acao_choice == 'D' || acao_choice == 'd') {
+                    else if (opcao_acao == 'D' || opcao_acao == 'd') {
                         if (acao_dica) {
                             printf("\n--- DICA --- \n");
                             printf("%s\n", p.dica); 
@@ -214,10 +248,9 @@ int main() {
                     break;
                 }
                 
-                // [ 4 ] MOSTRAR ESTADO DO JOGO
                 case '4':
                     printf("\n--- ESTADO DO JOGO ---\n");
-                    printf("Nivel Atual: %d de %d\n", n + 1, TOTAL_NIVEIS);
+                    printf("Nivel Atual: %d de %d\n", nivel_atual + 1, TOTAL_NIVEIS);
                     printf("Acoes Especiais Disponiveis:\n");
                     printf(" - Pular: %s\n", acao_pular ? "Sim" : "Nao");
                     printf(" - Trocar: %s\n", acao_trocar ? "Sim" : "Nao");
@@ -225,7 +258,6 @@ int main() {
                     printf("-------------------------\n");
                     break;
                     
-                // [ 5 ] EXIBIR PERGUNTA ATUAL NOVAMENTE
                 case '5':
                     goto EXIBIR_PERGUNTA; 
 
@@ -233,8 +265,7 @@ int main() {
                     printf("Opcao invalida, tente novamente.\n");
                     break;
             }
-        } // Fim do loop do menu
-    } // Fim do loop do jogo
-    
+        } 
+    } 
     return 0;
 }

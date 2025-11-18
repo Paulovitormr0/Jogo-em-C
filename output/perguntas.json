@@ -1,0 +1,152 @@
+[
+  {
+    "texto": "Qual é o maior planeta do Sistema Solar?",
+    "alternativas": ["Marte", "Terra", "Júpiter", "Saturno"],
+    "resposta": 3,
+    "dica": "É um gigante gasoso e tem uma famosa 'Grande Mancha Vermelha'."
+  },
+  {
+    "texto": "Qual animal é conhecido como 'Rei da Selva'?",
+    "alternativas": ["Tigre", "Leão", "Elefante", "Urso"],
+    "resposta": 2,
+    "dica": "O macho é famoso por sua grande juba."
+  },
+  {
+    "texto": "Qual capital é famosa por ter a Torre Eiffel?",
+    "alternativas": ["Roma", "Londres", "Madri", "Paris"],
+    "resposta": 4,
+    "dica": "É a capital da França, também conhecida como 'Cidade Luz'."
+  },
+  {
+    "texto": "Quantos lados tem um triângulo?",
+    "alternativas": ["Dois", "Três", "Quatro", "Cinco"],
+    "resposta": 2,
+    "dica": "O próprio prefixo ('Tri') do nome já indica a resposta."
+  },
+  {
+    "texto": "Qual é a cor primária que falta em um semáforo (além de vermelho e amarelo)?",
+    "alternativas": ["Azul", "Laranja", "Verde", "Roxo"],
+    "resposta": 3,
+    "dica": "É a cor que internacionalmente significa 'Siga' ou 'Avançar'."
+  },
+  {
+    "texto": "Qual é a fórmula química da água?",
+    "alternativas": ["CO2", "O2", "H2O", "NaCl"],
+    "resposta": 3,
+    "dica": "São dois átomos de Hidrogênio e um de Oxigênio."
+  },
+  {
+    "texto": "Quem escreveu a famosa peça 'Romeu e Julieta'?",
+    "alternativas": ["Charles Dickens", "William Shakespeare", "Machado de Assis", "Homero"],
+    "resposta": 2,
+    "dica": "Famoso dramaturgo inglês, autor de 'Hamlet' e 'Macbeth'."
+  },
+  {
+    "texto": "Qual é o maior oceano do mundo?",
+    "alternativas": ["Oceano Atlântico", "Oceano Índico", "Oceano Ártico", "Oceano Pacífico"],
+    "resposta": 4,
+    "dica": "Cobre mais de um terço da superfície da Terra, banhando a Ásia e as Américas."
+  },
+  {
+    "texto": "Qual é a capital do Japão?",
+    "alternativas": ["Pequim", "Seul", "Tóquio", "Bangkok"],
+    "resposta": 3,
+    "dica": "É uma das maiores metrópoles do mundo e já se chamou 'Edo'."
+  },
+  {
+    "texto": "Quantos continentes existem no mundo?",
+    "alternativas": ["5", "6", "7", "8"],
+    "resposta": 3,
+    "dica": "O modelo mais comum no Brasil e EUA conta a América do Norte e do Sul como separadas."
+  },
+  {
+    "texto": "Quem pintou a 'Mona Lisa'?",
+    "alternativas": ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Michelangelo"],
+    "resposta": 3,
+    "dica": "Foi um gênio renascentista italiano que também pintou 'A Última Ceia'."
+  },
+  {
+    "texto": "Qual é a substância natural mais dura da Terra?",
+    "alternativas": ["Ouro", "Ferro", "Quartzo", "Diamante"],
+    "resposta": 4,
+    "dica": "É feito de carbono e é usado tanto em joias quanto em ferramentas de corte."
+  },
+  {
+    "texto": "Em que ano o Titanic afundou?",
+    "alternativas": ["1905", "1912", "1918", "1923"],
+    "resposta": 2,
+    "dica": "Ocorreu na viagem inaugural do navio, na segunda década do século XX."
+  },
+  {
+    "texto": "Qual é o principal gás que compõe a atmosfera terrestre?",
+    "alternativas": ["Oxigênio", "Dióxido de Carbono", "Nitrogênio", "Hidrogênio"],
+    "resposta": 3,
+    "dica": "Compõe cerca de 78% do ar que respiramos; o oxigênio é o segundo."
+  },
+  {
+    "texto": "Qual organela é conhecida como a 'usina de energia' da célula?",
+    "alternativas": ["Núcleo", "Ribossomo", "Mitocôndria", "Lisossomo"],
+    "resposta": 3,
+    "dica": "É responsável pela respiração celular e pela produção de ATP."
+  },
+  {
+    "texto": "Quem desenvolveu a teoria da relatividade geral?",
+    "alternativas": ["Isaac Newton", "Galileu Galilei", "Nikola Tesla", "Albert Einstein"],
+    "resposta": 4,
+    "dica": "Famoso físico alemão, também conhecido pela fórmula E=mc²."
+  },
+  {
+    "texto": "Qual é o menor país do mundo?",
+    "alternativas": ["Mônaco", "Vaticano", "San Marino", "Liechtenstein"],
+    "resposta": 2,
+    "dica": "É a sede da Igreja Católica e fica localizado dentro da cidade de Roma."
+  },
+  {
+    "texto": "Qual elemento químico tem o número atômico 1?",
+    "alternativas": ["Hélio", "Oxigênio", "Hidrogênio", "Carbono"],
+    "resposta": 3,
+    "dica": "É o primeiro elemento da tabela periódica e o mais abundante no universo."
+  },
+  {
+    "texto": "Qual é a velocidade da luz no vácuo (aproximadamente)?",
+    "alternativas": ["150.000 km/s", "300.000 km/s", "450.000 km/s", "600.000 km/s"],
+    "resposta": 2,
+    "dica": "Representada pela letra 'c' na física, é o limite de velocidade do universo."
+  },
+  {
+    "texto": "Na mitologia grega, quem é o deus do mar?",
+    "alternativas": ["Zeus", "Hades", "Apolo", "Poseidon"],
+    "resposta": 4,
+    "dica": "Irmão de Zeus, carrega um tridente e seu equivalente romano é Netuno."
+  },
+  {
+    "texto": "Qual princípio da física afirma que um corpo em repouso tende a permanecer em repouso?",
+    "alternativas": ["Lei da Gravitação Universal", "Segunda Lei de Newton", "Primeira Lei de Newton (Inércia)", "Princípio de Arquimedes"],
+    "resposta": 3,
+    "dica": "É o motivo pelo qual você é 'jogado para frente' quando o carro freia."
+  },
+  {
+    "texto": "Qual é a linguagem com o maior número de falantes nativos no mundo?",
+    "alternativas": ["Inglês", "Espanhol", "Hindi", "Mandarim"],
+    "resposta": 4,
+    "dica": "É o principal idioma falado na China."
+  },
+  {
+    "texto": "Qual foi o primeiro ser humano a pisar na Lua?",
+    "alternativas": ["Yuri Gagarin", "Buzz Aldrin", "Neil Armstrong", "Michael Collins"],
+    "resposta": 3,
+    "dica": "Famoso pela frase: 'É um pequeno passo para o homem...'."
+  },
+  {
+    "texto": "Em que camada da atmosfera a maioria dos fenômenos meteorológicos ocorre?",
+    "alternativas": ["Estratosfera", "Mesosfera", "Termosfera", "Troposfera"],
+    "resposta": 4,
+    "dica": "É a camada mais baixa da atmosfera, onde nós vivemos e os aviões voam."
+  },
+  {
+    "texto": "Qual o nome do supercontinente que existiu há cerca de 300 milhões de anos?",
+    "alternativas": ["Laurásia", "Gondwana", "Pangeia", "Rodínia"],
+    "resposta": 3,
+    "dica": "O nome, de origem grega, significa 'toda a Terra' ou 'todas as terras'."
+  }
+]
